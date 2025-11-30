@@ -50,3 +50,34 @@ Next recommended tasks:
 4. Add end-to-end tests, CI and Vercel deployment config
 
 If you'd like, I can continue wiring up API routes, authentication, or implement the CSV import + document upload flows next.
+
+---
+
+## Deploying to Vercel (step-by-step)
+
+This project is ready to deploy on Vercel. Follow these steps to deploy from GitHub/GitLab or other Git hosts:
+
+1) Push this repository to a remote (GitHub or similar). If you use GitHub, Vercel can auto-deploy from your repository.
+
+2) Create a Vercel project and connect your repository
+- Sign in to https://vercel.com and create a new Project.
+- Choose the Git provider (GitHub/GitLab/Bitbucket) and pick the `Studio` repo.
+
+3) Build & Output Settings
+- Framework Preset: Next.js (Vercel will auto-detect when it sees `next.config.js`)
+- Build command: `npm run build`
+- Output directory: (leave default / detected by Vercel)
+
+4) Add Environment Variables
+- In your Vercel Project settings add env variables (see `.env.example`). Set values for production/preview as needed.
+
+5) Deploy
+- Click `Deploy` — Vercel will run the build and create a deployment.
+
+6) Post-deploy
+- Optionally go to `Settings > Git Integration` to enable automatic deployment on every push.
+
+Notes:
+- This repo includes `vercel.json` and `.vercelignore` to help Vercel detect and build the Next.js app correctly.
+- For authentication or database connection, set environment variables securely in the Vercel dashboard.
+- If you use images or file uploads, configure an external storage provider (S3/Cloud Storage) and add secrets accordingly.
